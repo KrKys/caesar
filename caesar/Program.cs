@@ -29,8 +29,27 @@
     return encryptedText;
 }
 
+string fromAsciiCaesar(string encryptedText)
+{
+    string clearText = "";
+    foreach (char c in encryptedText)
+    {
+        if (c >= 65 && c <= 90)
+        {
+            int asciiCode = (int)c;
+            asciiCode -= 3;
+            if (asciiCode > 90)
+                asciiCode -= 26;
+            char encryptedChar = (char)asciiCode;
+            encryptedText += encryptedChar;
+        }
+        string uncryptedText = "";
+    }
+    return encryptedText;
+}
+
 //zdefiniuj string do zaszyfrowania
 string clearText = "Ala ma kota, kot ma Ale, a sierotka ma rysia";
 
 
-Console.WriteLine("Zaszyfrowany tekst: " + toAsciiCaesar(clearText));
+Console.WriteLine("Zaszyfrowany tekst: " + fromAsciiCaesar(clearText));
